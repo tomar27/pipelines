@@ -77,7 +77,6 @@ def create_python_job(python_module_path: str,
       with open(gcp_resources, 'w') as f:
         f.write(json_format.MessageToJson(job_resources))
       break
-  sub_process.wait_and_check()
   if not job_id:
     raise RuntimeError(
         'No dataflow job was found when running the python file.')
