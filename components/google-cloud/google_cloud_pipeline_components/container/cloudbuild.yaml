@@ -1,5 +1,6 @@
 steps:
 - name: 'gcr.io/kaniko-project/executor:latest'
   args:
-  - --destination=gcr.io/$PROJECT_ID/google-cloud-pipeline-components:latest
+  - --dockerfile=google_cloud_pipeline_components/container/Dockerfile
+  - --destination=gcr.io/$PROJECT_ID/google-cloud-pipeline-components:yang-bq-test
   - --cache=false
