@@ -44,15 +44,15 @@ if [ -z "${TAG_NAME}" ]; then
 fi
 
 if [ -z "${IMAGE_NAME}" ]; then
-  docker pull gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:latest || true
+  docker pull eu.gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:latest || true
 fi
 
-docker build -t ${LOCAL_IMAGE_NAME} . --cache-from gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:latest
+docker build -t ${LOCAL_IMAGE_NAME} . --cache-from eu.gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:latest
 if [ -z "${IMAGE_NAME}" ]; then
-  docker tag ${LOCAL_IMAGE_NAME} gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:${TAG_NAME}
-  docker tag ${LOCAL_IMAGE_NAME} gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:latest
-  docker push gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:${TAG_NAME}
-  docker push gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:latest
+  docker tag ${LOCAL_IMAGE_NAME} eu.gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:${TAG_NAME}
+  docker tag ${LOCAL_IMAGE_NAME} eu.gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:latest
+  docker push eu.gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:${TAG_NAME}
+  docker push eu.gcr.io/${PROJECT_ID}/${LOCAL_IMAGE_NAME}:latest
 else
   docker tag ${LOCAL_IMAGE_NAME} "${IMAGE_NAME}"
   docker push "${IMAGE_NAME}"

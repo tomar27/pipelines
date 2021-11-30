@@ -80,7 +80,7 @@ outputs:
     type: UI metadata
 implementation:
   container:
-    image: gcr.io/ml-pipeline/ml-pipeline-gcp:1.7.0-rc.3
+    image: eu.gcr.io/ingka-sbpaa-clv-dev/ml-pipeline-gcp
     command: ['python', '-u', '-m', 'kfp_component.launcher']
     args: [
       --ui_metadata_path, {outputPath: MLPipeline UI metadata},
